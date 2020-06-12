@@ -1,0 +1,70 @@
+I"K<p>I played with CTF.SG last weekend and we achieved 10th in the rankings although we didn’t even solve a single pwn!</p>
+
+<h1 id="find-tangential-cipher">Find Tangential Cipher</h1>
+
+<h5 id="category-forensics--3-solves--857-points">Category: Forensics | 3 solves | 857 points</h5>
+
+<p>We first-blooded this challenge thanks to my teammate Kenneth!</p>
+
+<p>We are given a <a href="https://drive.google.com/drive/folders/1oQYvJnbOou5TUXaV1ApoQnP6S_Vj8pbI">Google Drive link</a> with 9 files, named <code class="language-plaintext highlighter-rouge">Evidence.E01-8</code> and <code class="language-plaintext highlighter-rouge">Evidence.E01.txt</code>. The total file size is about 12 GB, so please check the link (if it is still alive) if  you want to try the question.</p>
+
+<p>From the txt file, we can figure out that it’s a physical image of a Windows system.</p>
+
+<p>Opening up the image for browsing, we are greeted with different volumes.</p>
+
+<p><img src="/assets/defenit-2020/forensics/vol-partitions.png" alt="Volume Partitions" /></p>
+
+<p>We tried them in order, starting from the first Basic data partition (vol 4) and finding that it’s got nothing interesting.</p>
+
+<p><img src="images/vol-4-partition.png" alt="Volume 4" /></p>
+
+<p>Moving on to the next basic data partition on vol 7, we find something we’re much more acquainted with - the <code class="language-plaintext highlighter-rouge">C:\</code> Drive Windows Filesystem!</p>
+
+<p><img src="/assets/defenit-2020/forensics/vol-7-partition.png" alt="Volume 7" /></p>
+
+<p>Browsing around, we started with Appdata, going down the Default (skeleton) user and all the way down to <code class="language-plaintext highlighter-rouge">/User/secre</code> which seems to be the main user on this machine. We find many files, but nothing too interesting - until we reached the end of Appdata. There was this Zoom database where the <code class="language-plaintext highlighter-rouge">firstName:lastName</code> of a user was <code class="language-plaintext highlighter-rouge">man:suspect</code>.</p>
+
+<p><img src="/assets/defenit-2020/forensics/zoom-suspect-man.png" alt="Zoom-Man-Suspect" /></p>
+
+<p>We knew we were up to something now.</p>
+
+<p>Moving on to the next db in the same folder, we found the message log in the first table of the db. As you can see in the image below, it goes like this:</p>
+
+<p><img src="/assets/defenit-2020/forensics/zoom-tangential-cipher.png" alt="Zoom-Tangential-Hint" /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Hello
+Long Time No See
+We're dealing with weapons
+I want you to go to the meeting place and get it yourself.
+The Tangential Cipher is in the File.
+Then, I'll ask you.
+</code></pre></div></div>
+
+<p>The next db file only showed the xmpp id, so we skipped that.</p>
+
+<p>However, going back to the first db in the folder, in the <code class="language-plaintext highlighter-rouge">zoom_mm_file</code> table, we found a <code class="language-plaintext highlighter-rouge">url</code> column that looked suspiciously like the <code class="language-plaintext highlighter-rouge">objkey</code> in a Zoom download link.</p>
+
+<p><img src="/assets/defenit-2020/forensics/zoom-file-id.png" alt="Zoom-File-ID" /></p>
+
+<p>Putting that together into a link, we get a file shown below (I think <code class="language-plaintext highlighter-rouge">zfk</code> is my token so I’m not pasting the link here)</p>
+
+<p><img src="/assets/defenit-2020/forensics/zoom-file-binary.png" alt="Zoom-File-Binary" /></p>
+
+<p>As the table mentioned that it was a <code class="language-plaintext highlighter-rouge">Secret.docx</code> file, we use <code class="language-plaintext highlighter-rouge">curl -o flag.docx &lt;URL&gt;</code> to download it and open it in Microsoft Word.</p>
+
+<p>And we got the flag!</p>
+
+<p><img src="/assets/defenit-2020/forensics/flag.png" alt="Flag" /></p>
+
+<details>
+  <summary>FLAG</summary>
+  
+  Mr_K_1_W@nT_Cola!!
+</details>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Long, single-line code blocks should not wrap. They should horizontally scroll if they are too long. This line should be long enough to demonstrate this.
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>The final element.
+</code></pre></div></div>
+:ET

