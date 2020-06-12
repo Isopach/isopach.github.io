@@ -68,7 +68,7 @@ And we got the flag!
 <details>
   <summary>FLAG</summary>
   
-  `Mr_K_1_W@nT_Cola!!`
+  Mr_K_1_W@nT_Cola!!
 </details>
 
 
@@ -145,6 +145,6 @@ And done! We got the flag just like that.
 <details>
   <summary>FLAG</summary>
   
-  `Defenit{R4ce_C0nd1710N_74r_5L1P_w17H_Y4ML_Rce!}`
+  Defenit{R4ce_C0nd1710N_74r_5L1P_w17H_Y4ML_Rce!}
 </details>
 
