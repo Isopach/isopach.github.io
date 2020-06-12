@@ -13,7 +13,7 @@ I played with CTF.SG last weekend and we achieved 10th in the rankings although 
 
 We first-blooded this challenge thanks to my teammate Kenneth!
 
-We are given a [Google Drive link](https://drive.google.com/drive/folders/1oQYvJnbOou5TUXaV1ApoQnP6S_Vj8pbI) with 9 files, named `Evidence.E01-8` and `Evidence.E01.txt`. The total file size is about 12 GB, so please check the link (if it is still alive) if  you want to try the question.
+We are given a [Google Drive link](https://drive.google.com/drive/folders/1oQYvJnbOou5TUXaV1ApoQnP6S_Vj8pbI) with 9 files, named `Evidence.E01-8` and `Evidence.E01.txt`. The total file size is about 12 GB, so please check the link (if it is still alive) if  you want to try the challenge.
 
 From the txt file, we can figure out that it's a physical image of a Windows system.
 
