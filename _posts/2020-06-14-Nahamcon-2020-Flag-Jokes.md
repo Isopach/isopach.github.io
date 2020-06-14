@@ -29,7 +29,7 @@ Analysing the JWT:
 eyJhbGciOiJSUzI1NiIsImprdSI6Imh0dHA6Ly9sb2NhbGhvc3Q6NTAwMC9zdGF0aWMvandrcy5qc29uIiwia2lkIjoic3FjRTFhOWdqOXAwOHpOTVIxTVdiTEx2dWFQeVVlSkVzQ2xCaHk3UTRKYyJ9.eyJ1c2VybmFtZSI6InRlc3QxMjMifQ.N5AGhe3X2GccJ2WYT7S5rdiwx9hs3UOZ8ksCys4qv5SMp3b6ADeT4qwBWNsCpnNp0vvd_onY-la1UnWW-2mz_OSkXxkf9ljYXLbV8SEbCaTWYdAL_15PvIGW27mHV7Pm_1OWsYid2uT8wU3IDwqx9RmOofJLeMDjUoIf6-rjtdvPF958ZjTDe5HkML8fVotOv1HPKKYm99JH_fZ2fVx-zrbsnt_gWhBMuB9eePe2QSWOn-CJxl1LJzAJ4e143pWBfzG2gBUhCSEe3thSIXcud5Kf6lurNuqTJL0VrQzArGL5SVKsk5erFajKhLfKjGDZ4sIfr_hDiJpjDQnNO0MQ8w
 ```
 
-We can see that the `jku` value points to `/static/jwks.json`, so we try accessing it on http://jh2i.com:50010/jwks.json 
+We can see that the `jku` value points to `/static/jwks.json`, so we try accessing it on http://jh2i.com:50010/static/jwks.json 
 
 As I wasn't sure what JWKS was, I went to read [this article](https://auth0.com/docs/tokens/concepts/jwks) by auth0 and it helped me.
 
