@@ -47,11 +47,15 @@ Challenge authors told us not to release the writeup yet, so I'll respect their 
 
 #### Category: Digital Forensics | ? solves | 496 points
 
+Placeholder
+
 ---
 
 # UnRemovable
 
 #### Category: Digital Forensics | ? solves | 497 points
+
+Placeholder
 
 ---
 
@@ -59,11 +63,15 @@ Challenge authors told us not to release the writeup yet, so I'll respect their 
 
 #### Category: Digital Forensics | ? solves | 498 points
 
+Placeholder
+
 ---
 
 # Farewell
 
 #### Category: Digital Forensics | ? solves | 10 points
+
+Placeholder
 
 ---
 
