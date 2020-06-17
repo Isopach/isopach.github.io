@@ -1,3 +1,10 @@
+# Isopach.DEV
+
+Isopach's blog for CTF Writeups.
+
+I have a site at https://ylkoh.top too, which I made many years ago.
+
+<!--
 # The Hacker-Blog theme
 
 *Hacker-Blog is a minimalistic, responsive jekyll theme built for hackers. It is based on the [hacker theme](https://github.com/pages-themes/hacker) for project pages.*
@@ -112,3 +119,4 @@ Edit `404.md`
 ## License
 
 CC0 1.0 Universal
+-->
