@@ -31,7 +31,7 @@ Under the `StandardName` key, we see the value `Cicada3310`, which is the flag.
   zh3r0{Cicida3310}
 </details>
 
----
+------
 
 # Good Ol' IE
 
@@ -41,7 +41,7 @@ Redacted
 
 Challenge authors told us not to release the writeup yet, so I'll respect their decision.
 
----
+------
 
 # Soundless
 
@@ -49,7 +49,7 @@ Challenge authors told us not to release the writeup yet, so I'll respect their 
 
 Placeholder
 
----
+------
 
 # UnRemovable
 
@@ -57,7 +57,7 @@ Placeholder
 
 Placeholder
 
----
+------
 
 # Run Forrest Run
 
@@ -65,7 +65,7 @@ Placeholder
 
 Placeholder
 
----
+------
 
 # Farewell
 
@@ -73,7 +73,7 @@ Placeholder
 
 Placeholder
 
----
+------
 
 # Forensics
 
