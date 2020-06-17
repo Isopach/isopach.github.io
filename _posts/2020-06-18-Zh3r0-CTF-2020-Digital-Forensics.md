@@ -37,7 +37,7 @@ Under the `StandardName` key, we see the value `Cicada3310`, which is the flag.
 
 #### Category: Digital Forensics | 42 solves | 496 points
 
-<redacted> 
+Redacted
 
 Challenge authors told us not to release the writeup yet, so I'll respect their decision.
 
