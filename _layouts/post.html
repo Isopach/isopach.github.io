@@ -5,5 +5,5 @@ layout: default
 <article>
   <h2>{{ page.title }}</h2>
   <time datetime="{{ page.date | date_to_xmlschema }}" class="by-line">{{ page.date | date_to_string }}</time>
-  {% include anchor_headings.html html=content anchorBody="" %}
+  {% include anchor_headings.html html=content anchorBody="#" %}
 </article>
