@@ -184,13 +184,22 @@ File - Same as the first challenge file
 
 My teammate Kenneth chanced upon the flag randomly while searching for Anubis. Actually we submitted it to the earlier challenge but it was the wrong flag, but discovered it was meant for this! 
 
-I will find the intended solution and update the post soon.
+~~I will find the intended solution and update the post soon.~~
 
+Okay so basically I found this in 2 steps:
+
+1. Do keyword search for 'Anubis.exe' (include substring)     
+
+It returned 4 results, and only 1 of them was a registry file.
+
+2. Open the registry file and look one line up. There is the flag shown in the screenshot below.
+
+![Run-Forrest-Run-flag](../assets/zh3r0-ctf-2020/Run-Forrest-Run-flag.png)
 
 <details>
   <summary>FLAG</summary>
   
-  zh3r0{ctfmalware.exe}
+  zh3r0{zh3r0ctfmalware.exe}
 </details>
 
 ***
