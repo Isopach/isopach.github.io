@@ -90,8 +90,17 @@ Flag format - zh3r0{path to the malware file}
 </details>
 
 
+This was also pretty easy! The description basically says to find where the location of `My Music` is, so we go to the registry for `Current User` and look for where `My Music` points to. 
 
-Placeholder
+I found the path by going to my own computer's `regedit` and searching for `My Music`, which gave me the path `HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders` and all I had to do was to find the same folder in the `Image.E01`.
+
+![Soundless Flag](../assets/Soundless-flag.png)
+
+<details>
+  <summary>FLAG</summary>
+  
+  zh3r0{Hades.exe}
+</details>
 
 ------
 
