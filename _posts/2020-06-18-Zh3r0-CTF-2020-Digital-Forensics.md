@@ -78,7 +78,7 @@ So I wrapped it in the CTF flag tags and it was the correct flag!
 #### Category: Digital Forensics | ? solves | 496 points
 
 <details>
-  <summary>Challenge Description>
+  <summary>Challenge Description></summary>
   
   Good job in finding the flag! We have found traces of yet another malware! The information we have is that MR.Zh3r0's music folder isn't really a music folder,(i.e), he's music folder seems to trigger the virus software somehow whenever he clicks it! Now he can't even open his default music folder to hear some good musics! We have a certain idea that somehow the virus might be redirecting the clicks to a different location where the virus resides or the location of music folder could be compltely different! You can find the flag at the right place when you look, it will be obvoius when u look at it!
 
