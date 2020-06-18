@@ -113,7 +113,7 @@ I found the path by going to my own computer's `regedit` and searching for `My M
 <details>
   <summary>FLAG</summary>
   
-  zh3r0{Hades.exe}
+  zh3r0{C:\Users\zh3r0\Documents\Hades.exe}
 </details>
 
 ------
@@ -128,13 +128,13 @@ I found the path by going to my own computer's `regedit` and searching for `My M
   Now, that you have found out how the malware got in, the next question is to find what the malware's name is, we have got a lead though, we found out that the virus wasn't removable from the system even after a restart. Although it hasn't been identified at a particular location, something is triggering it to restart as soon as he logs in! How could this happen? If you find the reason or the method for the above mentioned phenomenon you will find the flag there as an obvious one.
 
 
-Note:- File for the challenges in this series is the same
+   Note:- File for the challenges in this series is the same
 
-Author : Amun-Ra
+   Author : Amun-Ra
 
-Flag format - zh3r0{malware name which will be at the right location you will need to find at}
+   Flag format - zh3r0{malware name which will be at the right location you will need to find at}
 
-File - Same as the first challenge file
+   File - Same as the first challenge file
 
 </details>
 
@@ -149,8 +149,7 @@ Wrap it in the flag tags and you've got the flag.
 <details>
   <summary>FLAG</summary>
 
-zh3r0{Anubis} or zh3r0{Anubis.exe} 
-(I forgot which was it)
+zh3r0{C:\windows\Program Files(x86)\Anubis.exe}
 </details>  
 
 
