@@ -45,7 +45,7 @@ Under the `StandardName` key, we see the value `Cicada3310`, which is the flag.
   zh3r0{Cicida3310}
 </details>
 
-------
+======
 
 # Good Ol' IE
 
@@ -85,7 +85,7 @@ So I wrapped it in the CTF flag tags and it was the correct flag!
   zh3r0{http://w3.you-got-million-dollars-click-me.nr.hg.org.tech/}
 </details>
 
-------
+======
 
 # Soundless
 
@@ -116,7 +116,7 @@ I found the path by going to my own computer's `regedit` and searching for `My M
   zh3r0{C:\Users\zh3r0\Documents\Hades.exe}
 </details>
 
-------
+======
 
 # UnRemovable
 
@@ -153,7 +153,7 @@ zh3r0{C:\windows\Program Files(x86)\Anubis.exe}
 </details>  
 
 
-------
+======
 
 # Run Forrest Run
 
@@ -174,7 +174,13 @@ Flag format - zh3r0{location of the malware file}
 File - Same as the first challenge file
 </details>
 
-------
+<details>
+  <summary>FLAG</summary>
+  
+  zh3r0{ctfmalware.exe}
+</details>
+
+======
 
 # Farewell
 
@@ -204,7 +210,7 @@ This is the bonus challenge for completing the category. As you can see, we are 
   zh3r0{Digital_Forensics_Rocks!!!}
 </details>
 
-------
+======
 
 ## Forensics
 
