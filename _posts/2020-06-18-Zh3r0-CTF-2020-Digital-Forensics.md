@@ -49,7 +49,21 @@ Under the `StandardName` key, we see the value `Cicada3310`, which is the flag.
 
 # Good Ol' IE
 
-#### Category: Digital Forensics | 42 solves | 496 points
+#### Category: Digital Forensics | 22 solves | 496 points
+
+<details>
+  <summary>Challenge Description</summary>
+  
+  We haven't found the traces of how the virus could have got into the system. There are several attack vectors that a malware could get into the system which you will need to research upon. Now the question is, find the most probable way the malware(s) could've got in and the flag would be the name of the source.
+
+Note:- File for the challenges in this series is the same
+
+Author : Amun-Ra
+
+Flag format - zh3r0{name of the malware source through which it entered the PC}
+
+File - Same as the first challenge file
+</details>
 
 This one stumped me for a day. I actually gave up on it and then came back 2 hours before the CTF ended and suddenly had the inspiration to look at the URL list manually, one by one.
 
@@ -75,7 +89,7 @@ So I wrapped it in the CTF flag tags and it was the correct flag!
 
 # Soundless
 
-#### Category: Digital Forensics | ? solves | 496 points
+#### Category: Digital Forensics | 21 solves | 496 points
 
 <details>
   <summary>Challenge Description></summary>
@@ -106,25 +120,74 @@ I found the path by going to my own computer's `regedit` and searching for `My M
 
 # UnRemovable
 
-#### Category: Digital Forensics | ? solves | 497 points
+#### Category: Digital Forensics | 18 solves | 497 points
 
-Placeholder
+<details>
+  <summary>Challenge Description</summary>
+  
+  Now, that you have found out how the malware got in, the next question is to find what the malware's name is, we have got a lead though, we found out that the virus wasn't removable from the system even after a restart. Although it hasn't been identified at a particular location, something is triggering it to restart as soon as he logs in! How could this happen? If you find the reason or the method for the above mentioned phenomenon you will find the flag there as an obvious one.
+
+
+Note:- File for the challenges in this series is the same
+
+Author : Amun-Ra
+
+Flag format - zh3r0{malware name which will be at the right location you will need to find at}
+
+File - Same as the first challenge file
+
+</details>
 
 ------
 
 # Run Forrest Run
 
-#### Category: Digital Forensics | ? solves | 498 points
+#### Category: Digital Forensics | 16 solves | 498 points
 
-Placeholder
+<details>
+  <summary>Challenge Description</summary>
+  
+  Just like one other malware you found, we found traces of another malware which is able to start itself without user intervention, but this time we have no idea or info on when it starts or what triggers it, we only know that it runs automatically! If you have found out all the other flags then this one would be easy for you, this is a test of how much you know about forensics and where to look at properly!
+
+
+Note:- File for the challenges in this series is the same
+
+Author : Amun-Ra
+
+Flag format - zh3r0{location of the malware file}
+
+File - Same as the first challenge file
+</details>
 
 ------
 
 # Farewell
 
-#### Category: Digital Forensics | ? solves | 10 points
+#### Category: Digital Forensics | 16 solves | 10 points
 
-Placeholder
+<details>
+  <summary>Challenge Description</summary>
+  
+  I hope you liked this series! Hope you learned a lot from this from this!!! Thanks for the support as well!
+
+Congratulations on solving this series!! You all did well and proved to be a good Digital Forensics Expert!
+
+Have fun doing Forensics!
+
+P.S. People who found the flag way before the wave 3 challs got released,... You are either a really Good Forensic expert or very lucky to stumble upon this!! Any ways congrats to you to for the fast solve!
+
+Author : Amun-Ra
+
+Flag - zh3r0{Digital_Forensics_Rocks!!!}
+</details>
+
+This is the bonus challenge for completing the category. As you can see, we are given a free flag which was the answer.
+
+<details>
+  <summary>FLAG</summary>
+  
+  zh3r0{Digital_Forensics_Rocks!!!}
+</details>
 
 ------
 
@@ -133,6 +196,14 @@ Placeholder
 # Snow
 
 #### Category: Forensics | 126 solves | 325 points
+
+<details>
+  <summary>Challenge Description</summary>
+  
+  I wonder if the snow loves the trees and fields, that it kisses them so gently?
+
+Author : h4x5p4c3
+</details>
 
 We are given a file that cannot be unzipped on a Windows filesystem (I tried). Unzipping it on Mac messes up the filenames, so I did it on the latest Ubuntu 18.
 
