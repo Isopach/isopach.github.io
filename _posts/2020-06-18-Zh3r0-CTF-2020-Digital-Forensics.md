@@ -3,15 +3,17 @@ title: Zh3r0 CTF 2020 - Digital Forensics
 published: true
 ---
 
-There was so much guess... so much guess that I gave up and only did this category and some of the other Forensics which were copied challenges from other CTFs.
+There was so much guess... so much guess that I gave up and only did the Digital Forensics category and some of the other Forensics which were copied challenges from other CTFs.
 
 MVP goes to the Google Source Code challenge, we found out AFTER the CTF that someone deleted the hints like phpinfo because it was an unrestricted sandbox, and occasionally someone would do an `rm -rf` so the whole website returned 403 Forbidden. Also according to the challenge creator, it is not guess.
 
-Anyway, enough of that. 
+Anyway, enough of that! I feel like I have learnt quite a bit about the Windows Registry and how to use the features of Autopsy from this CTF, so it was still a plus. Not sure if we will participate again next year though. 
 
 ---
 
 ## Digital Forensics
+
+---
 
 # PreDestination
 
@@ -116,7 +118,11 @@ I found the path by going to my own computer's `regedit` and searching for `My M
   zh3r0{C:\Users\zh3r0\Documents\Hades.exe}
 </details>
 
+
 ***
+
+***    
+
 
 # UnRemovable
 
@@ -152,7 +158,8 @@ Wrap it in the flag tags and you've got the flag.
 zh3r0{C:\windows\Program Files(x86)\Anubis.exe}
 </details>  
 
-
+***
+<hr>
 ***
 
 # Run Forrest Run
@@ -187,6 +194,8 @@ I will find the intended solution and update the post soon.
 </details>
 
 ***
+<hr>
+***
 
 # Farewell
 
@@ -218,6 +227,8 @@ This is the bonus challenge for completing the category. As you can see, we are 
 
 ***
 
+***
+
 ## Forensics
 
 # Snow
@@ -234,7 +245,9 @@ Author : h4x5p4c3
 
 We are given a file that cannot be unzipped on a Windows filesystem (I tried). Unzipping it on Mac messes up the filenames, so I did it on the latest Ubuntu 18.
 
-After unzipping and doing `cd snow`, I present to you my one-line solution:
+After unzipping and doing `cd snow`, I realized it's the exact same whitespace stego challenge as the one called `snowflake` in Nahamcon.
+
+Thus, I present to you my one-line solution:
 
 `stegsnow -C -p $(cat .snowey/.../.../.secret.txt) chall.txt`
 
