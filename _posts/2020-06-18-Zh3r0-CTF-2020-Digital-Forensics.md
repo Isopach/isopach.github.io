@@ -138,6 +138,22 @@ File - Same as the first challenge file
 
 </details>
 
+The key takeaway from the description is "Finding a software that runs when system is restarted".
+
+So we go to the `software` registry in `Windows\system32\config\` and under `Microsoft\Windows\Current Version\Run\`, in the `execute` key, there is the Malware name!
+
+![UnRemovable Flag](../assets/zh3r0-ctf-2020/UnRemovable-flag.png)
+
+Wrap it in the flag tags and you've got the flag.
+
+<details>
+  <summary>FLAG</summary>
+
+zh3r0{Anubis} or zh3r0{Anubis.exe} 
+(I forgot which was it)
+</details>  
+
+
 ------
 
 # Run Forrest Run
