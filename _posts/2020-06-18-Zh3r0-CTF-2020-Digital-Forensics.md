@@ -108,7 +108,7 @@ This was also pretty easy! The description basically says to find where the loca
 
 I found the path by going to my own computer's `regedit` and searching for `My Music`, which gave me the path `HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders` and all I had to do was to find the same folder in the `Image.E01`.
 
-![Soundless Flag](../assets/Soundless-flag.png)
+![Soundless Flag](../assets/zh3r0-ctf-2020/Soundless-flag.png)
 
 <details>
   <summary>FLAG</summary>
