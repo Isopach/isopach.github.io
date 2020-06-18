@@ -175,15 +175,9 @@ File - Same as the first challenge file
 </details>
 
 
-Placeholder
+My teammate Kenneth chanced upon the flag randomly while searching for Anubis. Actually we submitted it to the earlier challenge but it was the wrong flag, but discovered it was meant for this! 
 
-
-Placeholder
-
-
-Placeholder
-
-
+I will find the intended solution and update the post soon.
 
 
 <details>
