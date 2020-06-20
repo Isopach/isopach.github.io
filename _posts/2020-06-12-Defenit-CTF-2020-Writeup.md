@@ -1,6 +1,8 @@
 ---
+layout: post
 title: Defenit CTF 2020 Writeup
 published: true
+categories: [Web, Forensics]
 ---
 
 I played with CTF.SG last weekend and we achieved 10th in the rankings although we didn't even solve a single pwn!

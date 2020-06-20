@@ -1,6 +1,8 @@
 ---
+layout: post
 title: Zh3r0 CTF 2020 - Digital Forensics
 published: true
+categories: [Forensics]
 ---
 
 There was so much guess... so much guess that I gave up and only did the Digital Forensics category and some of the other Forensics which were copied challenges from other CTFs.
@@ -121,9 +123,6 @@ I found the path by going to my own computer's `regedit` and searching for `My M
 
 ***
 
-***    
-
-
 # UnRemovable
 
 #### Category: Digital Forensics | 18 solves | 497 points
@@ -158,8 +157,6 @@ Wrap it in the flag tags and you've got the flag.
 zh3r0{C:\windows\Program Files(x86)\Anubis.exe}
 </details>  
 
-***
-<hr>
 ***
 
 # Run Forrest Run
@@ -203,8 +200,6 @@ It returned 4 results, and only 1 of them was a registry file.
 </details>
 
 ***
-<hr>
-***
 
 # Farewell
 
@@ -234,11 +229,11 @@ This is the bonus challenge for completing the category. As you can see, we are 
   zh3r0{Digital_Forensics_Rocks!!!}
 </details>
 
-***
-
-***
+---
 
 ## Forensics
+
+---
 
 # Snow
 

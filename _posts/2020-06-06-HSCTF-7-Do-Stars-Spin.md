@@ -1,6 +1,8 @@
 ---
+layout: post
 title: HSCTF 7 - Do Stars Spin? 1 to 3
 published: true
+categories: [Misc, Osint]
 ---
 
 I played with CTF.SG and solved all the OSINT challenges in the Misc category!

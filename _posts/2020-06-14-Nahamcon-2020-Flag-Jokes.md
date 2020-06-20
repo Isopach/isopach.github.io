@@ -1,6 +1,8 @@
 ---
+layout: post
 title: Nahamcon 2020 - Flag Jokes
 published: true
+categories: [Web]
 ---
 
 I only solved a few challenges this CTF as I didn't have time to play, and this was the most interesting non-guessy one.
