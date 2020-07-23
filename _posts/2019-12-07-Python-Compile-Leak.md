@@ -3,10 +3,10 @@ layout: post
 title: Python Compile Leak Bug 
 published: true
 categories: [Research]
-excerpt: I was trying to break out of a python sandbox back in October, when I discovered a by-design bug.
+excerpt: I was trying to break out of a python sandbox back in October, when I discovered a By-Design bug.
 ---
 
-I was trying to break out of a python sandbox back in October, when I discovered a by-design bug.
+By using the `compile` function and throwing an error by `return`ing it early, we can leak the first line of any file that we have access permissions to. 
 
 ---
 
@@ -14,7 +14,7 @@ I was trying to break out of a python sandbox back in October, when I discovered
 
 ### Background
 
-I was trying to break out of a python sandbox back in October, when I asked [this question](https://security.stackexchange.com/q/219320/169503) on Stackexchange (but no one answered...)
+I was trying to break out of a python sandbox back in October, when I asked [this question](https://security.stackexchange.com/q/219320/169503) on Stackexchange (but no one answered...). I eventually opened my [first issue](https://bugs.python.org/issue38985) on the Python Bug Tracker, and was told that it was By-Design.
 
 By using the `compile` function and throwing an error by `return`ing it early, we can leak the first line of any file that we have access permissions to. 
 
@@ -36,7 +36,7 @@ While it is useful in many cases, often we want to see the whole file, right?
 To do this, since python interprets files line-by-line, we can delay the termination error simply by adding a new line `\n` to leak a line at a time.
 
 For example, let's make `/tmp/passwd`:
-```
+```bash
 $ cat /tmp/passwwd
 line 1
 line 2 
@@ -50,7 +50,7 @@ We will be able to read the first line with 0 `\n` like as above, but when we ru
 
 We'll be able to get every line by catching the `Traceback` and storing it in a variable, then printing it out for every line like this:
 
-```
+```python
 import traceback
 import sys
 
