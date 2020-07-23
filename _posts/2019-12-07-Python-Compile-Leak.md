@@ -10,7 +10,7 @@ I was trying to break out of a python sandbox back in October, when I discovered
 
 ---
 
-# Leaking files with `compile()`in Python
+# Leaking files with compile() in Python
 
 ### Background
 
@@ -19,7 +19,7 @@ I was trying to break out of a python sandbox back in October, when I asked [thi
 By using the `compile` function and throwing an error by `return`ing it early, we can leak the first line of any file that we have access permissions to. 
 
 Now, you may ask:     
->But Isopach, what's the use of leaking a file that you already have permissions to read? Why not just `cat` it? 
+>But Isopach, what's the use of leaking a file that you already have permissions to read? Why not just **cat** it? 
 
 And to be honest, on hindsight this isn't even a noteworthy bug to write about. 
 
