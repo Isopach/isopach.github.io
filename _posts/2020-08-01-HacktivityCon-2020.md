@@ -8,6 +8,8 @@ excerpt: I played guess the flag with CTF.SG last week, spending a total of 3 ho
 
 I played guess the flag with CTF.SG last week, spending a total of 3 hours to solve 20+/- of all the guess challenges. We only had a few people playing, so it wasn't surprising that we finished around top 40. 
 
+All-in-all, I think that guess challenges are fine when they are kept to a fraction of the amount of points for the usual challenges. Maybe not so fun for teams competing for tiebreaker though.
+
 ---
 
 ## Scavenger Hunt
@@ -25,7 +27,7 @@ Have you seen the million dollar jar of mayo on HackerOne?
 
 </details>
 
-This is obviously referring to Mayo, the well-known hacker who earned over a million USD on hackerone. 
+This is obviously referring to Mayo, the well-known hacker who earned over a million USD on HackerOne. 
 
 ![Mayo flag](../assets/hacktivitycon-2020/mayo-flag.png)
 
@@ -48,7 +50,7 @@ There's something about liking and subscribing on YouTube!
 
 </details>
 
-Go to Hackerone's youtube channel about page. You don't actually have to like or subscribe.
+Go to HackerOne's youtube channel about page. You don't actually have to like or subscribe.
 
 <details>
   <summary>FLAG</summary>
@@ -70,11 +72,12 @@ Go back to where it all started.
 
 </details>
 
-Where is all started...? Hmm I still dont know where actually, but I found it on the FAQ page while crawling the H1 website.
+Where is all started...? Why not check out "Getting Started" on HackerOne's FAQ?
 
 https://docs.hackerone.com/hackers/hacker-email-alias.html#faqs
 
 ![One of Us flag](../assets/hacktivitycon-2020/oneofus-flag.png)
+
 
 <details>
   <summary>FLAG</summary>
