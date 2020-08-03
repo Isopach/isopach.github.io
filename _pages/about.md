@@ -14,3 +14,5 @@ This is a blog for my CTF Writeups, because people have been telling me that it'
 Anyway, if you wanna know more, feel free to follow me on [Twitter](https://twitter.com/kohyouliang), or see my resume [here](https://resume.ylkoh.top)!
 
 Also, you can contact me anytime at my email on the link in the footer.
+
+Interested in the theme, or want to read/link to the `.md` files directly? You can find this repository's source on [Github](https://github.com/Isopach/isopach.github.io).
