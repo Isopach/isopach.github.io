@@ -16,6 +16,8 @@ It is used for my self learning purposes and work sometimes.
 This is just some sample code for when creating an XHR CSRF PoC.    
 It is used for my self learning purposes and work sometimes.
 
+You can use it for JSON CSRF too.
+
 
   
 ```html
@@ -38,6 +40,7 @@ http.onreadystatechange = function()
 	}
 }
 http.send(`Your payload here`);
+//http.send(JSON.stringify({"test":"test"})); // Use this for json csrf because sometimes type is not checked
 }
 
 getMe();
