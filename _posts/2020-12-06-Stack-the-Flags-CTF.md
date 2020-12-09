@@ -230,9 +230,10 @@ The lead Smart Nation engineer is missing! He has not responded to our calls for
 Flag is the repository name!<br />
 <br />
 <a href="https://www.developer.tech.gov.sg/communities/events/stack-the-flags-2020">Developer's Portal - STACK the Flags</a><br />
-----
+
 <br />
-Note: Just this page only! Only stack-the-flags-2020 page have the clues to help you proceed. Please do not perform any scanning activities on www.developer.tech.gov.sg. This is not part of the challenge scope!
+Note: Just this page only! Only stack-the-flags-2020 page have the clues to help you proceed. Please do not perform any scanning activities on www.developer.tech.gov.sg. This is not part of the challenge scope!<br />
+----
 </details>
 
 We are given just a page for this challenge. The first thing you want to do in any OSINT/Blind Web challenge is to open the page source, and so that's what I did. 
@@ -273,7 +274,7 @@ And thus we got the flag!!
 
 ...Or so I thought. After 5 minutes of trying different combinations of `krs`, `KRS`, `KoroVax_Revenue_System`, `Korovax_Revenue_System`, `korovax revenue system` and all their different capitalization forms, I decided that this was probably not the flag.
 
-So maybe he was working on a part of the admin portal? Maybe we should scour for more information. 
+So maybe he was working on a part of the admin portal? Maybe we should do recon for more information. 
 
 I went to call the Gitlab API for the repository:
 
