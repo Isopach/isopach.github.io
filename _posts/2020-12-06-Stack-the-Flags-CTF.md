@@ -3,10 +3,10 @@ layout: post
 title: STACK the Flags CTF Writeup
 published: true
 categories: [Osint, Cloud]
-excerpt: Played with some members of TFNS and it was fun! We finished 5th. Some of the challs had too much guess in them though. 
+excerpt: Played with some members of TFNS as Team IPhone XS and it was fun! We finished 5th. Some of the challs had too much guess in them though. 
 ---
 
-Played with some members of TFNS and it was fun! We finished 5th. Some of the challs had too much guess in them though. Also there were a few problems like releasing hints for already solved challenges, having useless purchased hints and being inconsistent such as not releasing hints for challenges that have 0 solves on the second day.
+Played with some members of TFNS as Team IPhone XS and it was fun! We finished 5th. Some of the challs had too much guess in them though. Also there were a few problems like releasing hints for already solved challenges, having useless purchased hints and being inconsistent such as not releasing hints for challenges that have 0 solves on the second day.
 
 ---
 
@@ -16,7 +16,7 @@ Played with some members of TFNS and it was fun! We finished 5th. Some of the ch
 
 # Find the leaking bucket!
 
-#### Category: Misc | 40 solves | Easy
+#### Category: Misc | 40 solves 
 
 <details>
   <summary>Challenge Description</summary>
@@ -75,7 +75,7 @@ Ah. So it wasn't the right bucket. This was before they had started the announce
 
 So we went back to exhaust our wordlist, to no avail. None of the combinations in the present wordlist worked, and we couldn't find another seemingly relevant keyword on the page.
 
-So Posix went to ask the staff this time, asking for permission to blindly bruteforce (as we only used the wordlist just now, it wasn't as blind). 
+So Posix went to ask the staff this time, asking for permission to blindly bruteforce (as we only used the word cloud just now, it wasn't as blind). 
 
 ![Permission to Bruteforce, Sir!](../assets/stack-the-flags-2020/cloud1.png)
 <center><i>Permission to Bruteforce, Sir!</i></center>
@@ -219,7 +219,7 @@ And you can read my thoughts below regarding the editing of the challenge descri
 
 # What is he working on? Some high value project?
 
-#### Category: Osint | 84 solves | Easy
+#### Category: Osint | 84 solves
 
 <details>
   <summary>Challenge Description</summary>
@@ -334,7 +334,7 @@ And you can click below if you're interested in my thoughts regarding the editin
 
 # Only time will tell!
 
-#### Category: Osint | 81 solves | Easy
+#### Category: Osint | 81 solves 
 
 <details>
   <summary>Challenge Description</summary>
@@ -358,14 +358,14 @@ Addendum:<br />
 ----
 </details>
 
-
+Placeholder
 
 
 
 <details>
   <summary>FLAG</summary>
   
-  
+  govtech-csg{1.286647_103.846836_2020:10:25_1500-1700}
 </details>
 
 <details>
