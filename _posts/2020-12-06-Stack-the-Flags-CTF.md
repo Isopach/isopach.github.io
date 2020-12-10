@@ -305,7 +305,7 @@ It turned out to be just the repository name.
 
 I actually first blooded this challenge despite wasting so much time on it. 
 
-![Fist Blood](../assets/stack-the-flags-2020/osint-1-fb.png)
+![First Blood](../assets/stack-the-flags-2020/osint-1-fb.png)
 <center><i>first-blood.mp3</i></center>
 
 As usual, click below to see the flag. 
@@ -355,7 +355,76 @@ Addendum:<br />
 ----
 </details>
 
-Placeholder
+We're given a picture for this one. To be precise, a *photo*.
+
+![Speaker's Corner](../assets/stack-the-flags-2020/osint-challenge-6.jpg)
+<center><i>Speaker's Corner</i></center> 
+
+This is the same photo in the files, with EXIF all intact.
+
+Now, the first thing we want to do when we get any photo in a Forensics/Osint/Misc challenge is to take a look at its properties using [ExifTool](https://exiftool.org/).
+
+```bash
+exiftool.exe "osint-challenge-6.jpg"
+ExifTool Version Number         : 12.12
+File Name                       : osint-challenge-6.jpg
+Directory                       : .
+File Size                       : 123 KiB
+File Modification Date/Time     : 2020:12:01 10:52:40+09:00
+File Access Date/Time           : 2020:12:11 07:06:29+09:00
+File Creation Date/Time         : 2020:12:05 01:00:27+09:00
+File Permissions                : rw-rw-rw-
+File Type                       : JPEG
+File Type Extension             : jpg
+MIME Type                       : image/jpeg
+JFIF Version                    : 1.01
+X Resolution                    : 96
+Y Resolution                    : 96
+Exif Byte Order                 : Big-endian (Motorola, MM)
+Make                            : COViD
+Resolution Unit                 : inches
+Y Cb Cr Positioning             : Centered
+GPS Latitude Ref                : North
+GPS Longitude Ref               : East
+Image Width                     : 551
+Image Height                    : 736
+Encoding Process                : Baseline DCT, Huffman coding
+Bits Per Sample                 : 8
+Color Components                : 3
+Y Cb Cr Sub Sampling            : YCbCr4:2:0 (2 2)
+Image Size                      : 551x736
+Megapixels                      : 0.406
+GPS Latitude                    : 1 deg 17' 11.93" N
+GPS Longitude                   : 103 deg 50' 48.61" E
+GPS Position                    : 1 deg 17' 11.93" N, 103 deg 50' 48.61" E
+```
+
+From the results, the most interesting information we can glean from is the GPS Coordinates. Given that the challenge description references a [GPS coordinate conversion tool](https://www.pgc.umn.edu/apps/convert/). Putting our Latitude and Longitude values into the converter, we get the `lat_lon` as follows: `1.286647_103.846836`, which makes up the first part of the flag!
+
+The second part requires some date in `YYYY:MM:DD` format, but where can we get that? From the ExifTool, it seems that it is likely to be `2020:12:01` as that was the earliest time the file was modified. If we were to take that as face value, it would also mean that the time this photo was taken was at 10:52 AM.
+
+But something felt off. Looking at the shadow and considering that the Sun rises in the East and sets in the West, it is clearly at some point past noon as its [location on Google Maps](https://goo.gl/maps/F3ASxaGgNQAsnDS39) - not the same coordinates, but taken from the same angle - is facing towards the West. Having never been there in person in my life, I was 99% certain that this was the correct location even though the GPS coordinates differed by the last decimal point. 
+
+![Speaker's Corner on Google Maps](../assets/stack-the-flags-2020/speakers-corner.png)
+<center><i>Same angle, but further</i></center> 
+
+Thus, we can write off the date/time given in the EXIF of that photo as fake. As there were limited tries for submitting the flag (at first, then they removed it for everyone after a few solves...), it ~~is~~ was very important that we get it on the first try.
+
+Let's take another look at the photo again to look for clues. Speaking of which, *what's that barcode doing down there?*
+
+![Suspicious barcode](../assets/stack-the-flags-2020/barcode.jpg)
+<center><i>Suspicious barcode</i></center> 
+
+Reading the barcode on my phone's barcode/qr code scanner yielded no results, probably because it was looking for a link. Googling for an online barcode reader, I found [this](https://online-barcode-reader.inliteresearch.com/), which read and interpreted the barcode as `25 October 2020`. We've got the date! I am much more inclined to believe that this is the correct date than the red herring that was in the File Modification Date, as this information is purposefully shown to us as compared to the other one.
+
+Hence we have the second part of the flag now, making it `1.286647_103.846836_2020:10:25_`. We just need to find the time.
+
+As said earlier, the time must be in the afternoon, and must be after noon. Given that we ~~have~~ had only 3 tries, we can probably bruteforce it within the 'afternoon' time range. 
+
+Hence I started with `1300-1500`, because it cannot include the noon hour given the shadow. It was wrong.    
+Then I tried `1400-1600`. Wrong.
+
+Finally, I tried `1500-1700`, and I got the flag! 
 
 
 
@@ -368,7 +437,7 @@ Placeholder
 <details>
   <summary>Afterthoughts</summary>
   
-  Again, the organizers decided to release a hint 22 hours into the CTF, after this challenge had about 10-20 solves. The number of solves skyrocketed to 81 after that. I'm not even angry anymore, just disappointed. My role this CTF was to score as many points as possible in the OSINT/For/Misc categories since we had a web god on our side, but it seems that with each hint being released, my efforts were worth less and lesser.
+  Again, the organizers decided to release a hint 22 hours into the CTF, after this challenge had about 10-20 solves. The number of solves skyrocketed to 81 after that. I'm not even angry anymore, just disappointed. My role this CTF was to score as many points as possible in the OSINT/For/Misc categories since we had a web god on our side, but it seems that with each hint being released, my efforts were worth less and lesser...
 </details>
 
 ***
