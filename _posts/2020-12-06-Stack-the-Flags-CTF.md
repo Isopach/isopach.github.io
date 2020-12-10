@@ -199,8 +199,6 @@ Doing so returns the flag below. Click on it to reveal the spoilers!
   govtech-csg{EnCrYpT!0n_D0e$_NoT_M3@n_Y0u_aR3_s4f3}
 </details>
 
-And you can read my thoughts below regarding the editing of the challenge description after we had solved it.
-
 <details>
   <summary>Afterthoughts</summary>
   
@@ -317,8 +315,6 @@ As usual, click below to see the flag.
   
   govtech-csg{krs-admin-portal}
 </details>
-
-And you can click below if you're interested in my thoughts regarding the editing of the challenge description after I had solved it. 
 
 <details>
   <summary>Afterthoughts</summary>
