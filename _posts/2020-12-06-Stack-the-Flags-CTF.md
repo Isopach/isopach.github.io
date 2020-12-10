@@ -441,3 +441,20 @@ Finally, I tried `1500-1700`, and I got the flag!
 </details>
 
 ***
+
+# Where was he kidnapped?
+
+#### Category: Osint | 71 solves 
+
+<details>
+  <summary>Challenge Description</summary>
+  
+The missing engineer stores his videos from his phone in his private cloud servers. We managed to get hold of these videos and we will need your help to trace back the route taken he took before going missing and identify where he was potentially kidnapped!<br /><br />
+
+You only have limited number of flag submissions!<br /><br />
+
+Please view this <a href="https://docs.google.com/document/d/11jHOoruVosCRLQzgtZv3iC8cRVJXoML8spfa8FWSfZY/edit?usp=sharing">Document</a> for download instructions.<br /><br />
+
+Flag Format: govtech-csg{postal_code}<br />
+----
+</details>
