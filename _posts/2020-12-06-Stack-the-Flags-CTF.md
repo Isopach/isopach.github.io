@@ -399,7 +399,7 @@ GPS Longitude                   : 103 deg 50' 48.61" E
 GPS Position                    : 1 deg 17' 11.93" N, 103 deg 50' 48.61" E
 ```
 
-From the results, the most interesting information we can glean from is the GPS Coordinates. Given that the challenge description references a [GPS coordinate conversion tool](https://www.pgc.umn.edu/apps/convert/). Putting our Latitude and Longitude values into the converter, we get the `lat_lon` as follows: `1.286647_103.846836`, which makes up the first part of the flag!
+From the results, the most interesting information we can glean from is the GPS Coordinates, given that the challenge description references a [GPS coordinate conversion tool](https://www.pgc.umn.edu/apps/convert/). Putting our Latitude and Longitude values into the converter, we get the `lat_lon` as `1.286647_103.846836`, which makes up the first part of the flag!
 
 The second part requires some date in `YYYY:MM:DD` format, but where can we get that? From the ExifTool, it seems that it is likely to be `2020:12:01` as that was the earliest time the file was modified. If we were to take that as face value, it would also mean that the time this photo was taken was at 10:52 AM.
 
@@ -415,11 +415,13 @@ Let's take another look at the photo again to look for clues. Speaking of which,
 ![Suspicious barcode](../assets/stack-the-flags-2020/barcode.jpg)
 <center><i>Suspicious barcode</i></center> 
 
-Reading the barcode on my phone's barcode/qr code scanner yielded no results, probably because it was looking for a link. Googling for an online barcode reader, I found [this](https://online-barcode-reader.inliteresearch.com/), which read and interpreted the barcode as `25 October 2020`. We've got the date! I am much more inclined to believe that this is the correct date than the red herring that was in the File Modification Date, as this information is purposefully shown to us as compared to the other one.
+Reading the barcode on my phone's barcode/qr code scanner yielded no results, probably because it was looking for a link. Googling for an online barcode reader, I found [this](https://online-barcode-reader.inliteresearch.com/), which read and interpreted the barcode as `25 October 2020`. 
+
+We've got the date! I am much more inclined to believe that this is the correct date than the apparent red herring that was in the File Modification Date, as this information is purposefully shown to us as compared to the other one.
 
 Hence we have the second part of the flag now, making it `1.286647_103.846836_2020:10:25_`. We just need to find the time.
 
-As said earlier, the time must be in the afternoon, and must be after noon. Given that we ~~have~~ had only 3 tries, we can probably bruteforce it within the 'afternoon' time range. 
+As said earlier, the time must be in the afternoon, and must be after noon. Given that we ~~have~~ had only 3 tries, we can probably bruteforce it within 3 tries in the 'afternoon' time range. 
 
 Hence I started with `1300-1500`, because it cannot include the noon hour given the shadow. It was wrong.    
 Then I tried `1400-1600`. Wrong.
@@ -458,3 +460,9 @@ Please view this <a href="https://docs.google.com/document/d/11jHOoruVosCRLQzgtZ
 Flag Format: govtech-csg{postal_code}<br />
 ----
 </details>
+
+In this challenge, we're given 3 video files. 
+
+
+
+***
