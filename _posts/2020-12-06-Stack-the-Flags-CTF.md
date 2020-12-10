@@ -16,7 +16,7 @@ Played with some members of TFNS as Team IPhone XS and it was fun! We finished 5
 
 # Find the leaking bucket!
 
-#### Category: Misc | 40 solves 
+#### Category: Cloud | 40 solves 
 
 <details>
   <summary>Challenge Description</summary>
