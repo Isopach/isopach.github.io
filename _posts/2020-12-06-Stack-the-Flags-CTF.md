@@ -688,5 +688,7 @@ I'll start this writeup off with that I didn't solve this in time. In fact I was
 
  I found the Important Evidence in /Evidence but it's encrypted by Maze ransomware. So I went to registry to look for 7zip latest file open and it had the folder there, but `CopyHistory` and `PathHistory` was missing so I could not find what/where the data was copied from. I then noticed the pcap and went to check on Web History but there wasnt anything much. 
  
- It was only after it ended 
+ It was only after it ended that I went to discuss with my friend who didn't participate this time with us. It turned out that for ransomware challenges, the flag was probably not in any of the files in the image. Or at least the *regular* image. 
+
+The flag was probably in the volatile VSS, on which Autopsy does not have by default. We would need to enable the experimental plugin and install the Volatile plugin in order to extract these VSS files. Most ransomwares would delete this files to prevent recovery, as that's what Windows for backup. However, as far I have checked, these files were still there at the time of the image, and hence it would have been possible to get the flag through there. 
 
