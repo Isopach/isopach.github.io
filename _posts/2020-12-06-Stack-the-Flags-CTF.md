@@ -510,7 +510,7 @@ Not 59099 Blk 220 (no yellow line)
 
 Which resulted in me quickly finding out that he boarded the bus at `59073 Opp Yishun Stn`, as the road curvature and yellow line matches. A quick look on the opposite side of the road also showed that the structure of the building opposite matches, as well as the residential HDB blocks towards the far left. You can see it for yourself [here](https://www.google.com/maps/place/Opp+Yishun+Stn/@1.4286988,103.8353997,3a,75y,7h,79.69t/data=!3m7!1e1!3m5!1sW9sSj2PK228FcI3NhpPlvw!2e0!6s%2F%2Fgeo3.ggpht.com%2Fcbk%3Fpanoid%3DW9sSj2PK228FcI3NhpPlvw%26output%3Dthumbnail%26cb_client%3Dmaps_sv.tactile.gps%26thumb%3D2%26w%3D203%26h%3D100%26yaw%3D272.8307%26pitch%3D0%26thumbfov%3D100!7i16384!8i8192!4m7!3m6!1s0x31da146fa2ae5aa1:0xc083032b27216e52!8m2!3d1.428681!4d103.835472!14m1!1BCgIgARICCAI).
 
-I then used the same method to attempt to find the bus stop he alighted at, to no avail. If you want to see my failures, click the spoiler tag below.
+I then used the same method to attempt to find the bus stop he alighted at, to no avail. If you want to see my failures, click on the spoiler tag below.
 
  <details>
   <summary>Epic Fail</summary>
@@ -519,7 +519,7 @@ I then used the same method to attempt to find the bus stop he alighted at, to n
   
   
   <s>4.3	 59069	 • Opp Blk 757</s><br />
-  <s>5.0	 59059	 • Blk 608</s>< (Pillars are white) <br />
+  <s>5.0	 59059	 • Blk 608</s> (Pillars are white) <br />
   <s>5.5	 59049	 • Opp Khatib Stn</s> (near station) <br />
   <s>5.9	 59039	 • Yishun Sports Hall</s> (blocks 5min walk wrong pillars) <br />
       	Yishun Ave 1<br />
@@ -584,7 +584,87 @@ Wrap that in the flag format, and we've solved it.
 <details>
   <summary>Afterthoughts</summary>
   
-  I learnt that before you start searching, you should think in terms of what the challenge author is thinking. It was only after I solved it that I realised that s/he probably intended for us to solve it by following the route on Street View, as is a common technique in OSINT challenges.
+  I learnt that before you start searching, you should think in terms of what the challenge author is thinking. It was only after I solved it that I realised that s/he probably intended for us to solve it by following the route on Street View, as it's a common technique in OSINT challenges.
 </details>
 
+***
+
+# Sounds of freedom!
+
+#### Category: Osint | 71 solves 
+
+<details>
+  <summary>Challenge Description</summary>
+  
+In a recent raid on a suspected COViD hideout, we found this video in a thumbdrive on-site. We are not sure what this video signifies but we suspect COViD's henchmen might be surveying a potential target site for a biological bomb. We believe that the attack may happen soon. We need your help to identify the water body in this video! This will be a starting point for us to do an area sweep of the vicinity!<br /><br />
+
+Please view this <a href="https://docs.google.com/document/d/11jHOoruVosCRLQzgtZv3iC8cRVJXoML8spfa8FWSfZY/edit?usp=sharing">Document</a> for download instructions.<br /><br />
+
+Flag Format: govtech-csg{postal_code}<br />
+----
+</details>
+
+For this challenge we are given a single video, 12.4 seconds long. We only have 3 attempts at max.
+
+<center><video src="../assets/stack-the-flags-2020/sounds-of-freedom.webm" type="video/webm" width="320" height="200" controls preload></video></center>
+<center><i>Sounds? What sounds?</i></center>
+
+I honestly didn't hear any sound besides the wind. I guess it wasn't meant to be some clue.
+
+Looking at the video, we see at the highest point there's a water body of some sort, along with HDB flats behind it. So the water body is probably not that big, but we can't be sure. And at the lowest point is a bus stop with a green fence to the left. 
+
+Summing that in points:
+
+- There's a bus stop right on the opposite of the road of the HDB block
+- The path behind the bus stop goes diagonally to the left
+- There are many trees at the back of the path
+- There is a green fence to the left of the bus stop
+- The back is elevated
+- There's a water body with trees at the top
+- There are HDB blocks on the opposite side, so it is not a huge nature reserve (probably)
+- There's some kind of structure (maybe rest stops?) towards the left
+
+So I started with searching big forested areas with hills, starting with Bukit Timah to Bukit Panjang and then to Mount Faber.
+
+And then I found Telok Blangah Heights, which I had initially believed to match the place given the bus stop design and the trees / small pond at the hilltop across the road from it, as well as the design of the HDB blocks. However, it turned out to be wrong upon further inspection and I continued my search.
+
+I put this challenge aside and went to do the other OSINT, until the final hour where it was clear we had to open some hints to catch up with 3rd place. 
+
+This was the hint: `Such loud noises are unique to Singaporeans! We do live near military installations.`
+
+Military installations! Who would've determined that just from the sound of the video alone? It was loud, sure, but wasn't it just the sound of the wind?
+
+Seeing as there's a finite number of military bases in Singapore, this challenge suddenly seemed much more solveable. We'll be using [this list](https://en.wikipedia.org/wiki/List_of_Singapore_Armed_Forces_bases) to aid us.
+
+I started with the Army Camps first, which didn't yield any results after an hour of searching. Pressed for time, I skipped to the Air Bases as if there's anything noisy enough to warrant the hint/description, it would be an air base.
+
+I know it is not Changi or Yishun as I have covered those in my previous searches. Hence I went for Murai Camp, which had no small water bodies nearby, so I skipped it.
+
+Next was Paya Lebar Air Base. There seems to be multiple small water bodies around the area, namely the one at Waterview and the one at Punggol Park. 
+
+![Paya Lebar Air Base](../assets/stack-the-flags-2020/paya-lebar-air-base.png)
+<center><i>Sounds of plane</i></center>
+
+
+A quick look at Waterview showed that it was Tampines Quarry, which was too large to be out target. Moreover, it would be impossible to see any HDB blocks on the opposite side from Waterview, hence I moved to Punggol Park.
+
+The first bus stop was a hit for me: Opp Blk 475B, `Stop ID: 62271`. It matches everything, down to the *shape* of the trees. Given that the photo was taken in April 2019, I was surprised by the uncanny resemblance. 
+
+![The Bus Stop](../assets/stack-the-flags-2020/sounds-of-busstop.png)
+<center><i>The Bus Stop</i></center>
+
+Wrapping the postal code of the park in the flag tags gave us the solve.
+
+
+<details>
+  <summary>FLAG</summary>
+  
+  govtech-csg{538768}
+</details>
+
+<details>
+  <summary>Afterthoughts</summary>
+  
+  I wasn't sure if we were supposed to enter the postal code of the water body or of the video location, as water bodies logically should not have postal code, so final postal code I found was actually not of the water body but of the park instead, which was a wide area. I asked the staff but all they told me was "Read the question." and wasted quite a few attempts on it, until I only had one left.
+</details>
 ***
