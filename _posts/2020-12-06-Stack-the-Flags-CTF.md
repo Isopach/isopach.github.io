@@ -686,9 +686,9 @@ Please view this <a href="https://docs.google.com/document/d/11jHOoruVosCRLQzgtZ
 
 I'll start this writeup off with that I didn't solve this in time. In fact I was so lost despite spending hours on it and potentially checking every file in the image. 
 
- I found the Important Evidence in /Evidence but it's encrypted by Maze ransomware. So I went to registry to look for 7zip latest file open and it had the folder there, but `CopyHistory` and `PathHistory` was missing so I could not find what/where the data was copied from. I then noticed the pcap and went to check on Web History but there wasnt anything much. 
+ I found the Important Evidence in `/Evidence` but it's encrypted by Maze ransomware. So I went to registry to look for 7zip latest file open and it had the folder there, but `CopyHistory` and `PathHistory` was missing so I could not find what/where the data was copied from. I then noticed the pcap and went to check on Web History but there wasnt anything much. 
  
- It was only after it ended that I went to discuss with my friend who didn't participate this time with us. It turned out that for ransomware challenges, the flag was probably not in any of the files in the image. Or at least the *regular* image. 
+It was only after it ended that I went to discuss with my friend who didn't participate this time with us. It turned out that for ransomware challenges, the flag was probably not in any of the files in the image. Or at least the *regular* image. 
 
-The flag was probably in the volatile VSS, on which Autopsy does not have by default. We would need to enable the experimental plugin and install the Volatile plugin in order to extract these VSS files. Most ransomwares would delete this files to prevent recovery, as that's what Windows for backup. However, as far I have checked, these files were still there at the time of the image, and hence it would have been possible to get the flag through there. 
+The flag was probably in the [volatile VSS](https://en.wikipedia.org/wiki/Shadow_Copy), on which Autopsy does not have by default. We would need to enable the experimental plugin and install the Volatile plugin in order to extract these VSS files. Most ransomwares would delete this files to prevent recovery, as that's what Windows does for backup. However, as far as I have checked, these files were still there at the time of the image, and hence it would have been possible to get the flag through there. 
 
