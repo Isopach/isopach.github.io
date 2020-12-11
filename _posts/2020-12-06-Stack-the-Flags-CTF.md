@@ -668,3 +668,25 @@ Wrapping the postal code of the park in the flag tags gave us the solve.
   I wasn't sure if we were supposed to enter the postal code of the water body or of the video location, as water bodies logically should not have postal code, so final postal code I found was actually not of the water body but of the park instead, which was a wide area. I asked the staff but all they told me was "Read the question." and wasted quite a few attempts on it, until I only had one left.
 </details>
 ***
+
+# Our Drive is encrypted!
+
+#### Category: Forensics | 0 solves 
+
+<details>
+  <summary>Challenge Description</summary>
+  
+Oh no! Our analyst accidentally executed a ransomware while analysing some important evidence. Are you able to help? Find the most important evidence from the image and retrieve the flag
+
+Note: You DO NOT need to email the perpetrator and you DO NOT need to pay any ransom
+
+Please view this Document for download instructions.
+----
+</details>
+
+I'll start this writeup off with that I didn't solve this in time. In fact I was so lost despite spending hours on it and potentially checking every file in the image. 
+
+ I found the Important Evidence in /Evidence but it's encrypted by Maze ransomware. So I went to registry to look for 7zip latest file open and it had the folder there, but `CopyHistory` and `PathHistory` was missing so I could not find what/where the data was copied from. I then noticed the pcap and went to check on Web History but there wasnt anything much. 
+ 
+ It was only after it ended 
+
