@@ -461,8 +461,130 @@ Flag Format: govtech-csg{postal_code}<br />
 ----
 </details>
 
-In this challenge, we're given 3 video files. 
+In this challenge, we're given 3 video files. I've converted them to `.webm` for your viewing pleasure.
 
+The first one features our presumed to-be-victim is waiting for a bus which had taken a long time to come.
 
+<center><video src="../assets/stack-the-flags-2020/video-1.webm" type="video/webm" width="320" height="200" controls preload></video></center>
+<center><i>Video 1 - Bus</i></center>
+
+The second one features him heading to somewhere after getting off the bus, with the caption hinting that this place is very far from any train stations.
+
+<center><video src="../assets/stack-the-flags-2020/video-2.webm" type="video/webm" width="320" height="200" controls preload></video></center>
+<center><i>Video 2 - Heading somewhere</i></center>
+
+And the third one features him waiting at a void deck, before he is suddenly assaulted from behind. *I hope his phone is okay.*
+
+<center><video src="../assets/stack-the-flags-2020/video-3.webm" type="video/webm" width="320" height="200" controls preload></video></center>
+<center><i>Video 3 - Void Deck</i></center>
+
+Piecing this together, it seems that we have to follow some bus route until the point he gets off the bus and find the exact block of HDB flats he entered, of which's postal code should be our flag.
+
+Looking at the first video, the bus number is `117` and it is headed towards `Punggol Int`. We have to first find where this bus stop is, as I have no clue, having never lived in that area nor been there in the past decade.
+
+A quick Google search brings us the [bus route](https://www.transitlink.com.sg/eservice/eguide/service_route.php?service=117), which we will be using a lot.
+
+Since the direction is towards Punggol Int, we want to look at the table on the right. Seeing as it could be anywhere but the start and the terminus, I started with analyzing the block from `Yishun Ave 2`, planning to go up and down if I couldn't find any leads.
+
+```
+Yishun Ave 2
+2.7	 59529	 • Opp Yishun Emerald
+3.1	 59259	 • Darul Makmur Mque
+3.6	 59099	 • Blk 220
+4.1	 59073	 • Opp Yishun Stn
+4.3	 59069	 • Opp Blk 757
+5.0	 59059	 • Blk 608
+5.5	 59049	 • Opp Khatib Stn
+5.9	 59039	 • Yishun Sports Hall
+```
+
+Hence this will be our first goal: Find the bus stop!
+
+Going by curvature of road that the bus comes in at 0:00:01, I determined the following:
+
+```
+Not 59529 Opp Yishun Emerald (road curvature)
+Not 59259 Darul Makmur Mque (no yellow line)
+Not 59099 Blk 220 (no yellow line)
+```
+
+Which resulted in me quickly finding out that he boarded the bus at `59073 Opp Yishun Stn`, as the road curvature and yellow line matches. A quick look on the opposite side of the road also showed that the structure of the building opposite matches, as well as the residential HDB blocks towards the far left. You can see it for yourself [here](https://www.google.com/maps/place/Opp+Yishun+Stn/@1.4286988,103.8353997,3a,75y,7h,79.69t/data=!3m7!1e1!3m5!1sW9sSj2PK228FcI3NhpPlvw!2e0!6s%2F%2Fgeo3.ggpht.com%2Fcbk%3Fpanoid%3DW9sSj2PK228FcI3NhpPlvw%26output%3Dthumbnail%26cb_client%3Dmaps_sv.tactile.gps%26thumb%3D2%26w%3D203%26h%3D100%26yaw%3D272.8307%26pitch%3D0%26thumbfov%3D100!7i16384!8i8192!4m7!3m6!1s0x31da146fa2ae5aa1:0xc083032b27216e52!8m2!3d1.428681!4d103.835472!14m1!1BCgIgARICCAI).
+
+I then used the same method to attempt to find the bus stop he alighted at, to no avail. If you want to see my failures, click the spoiler tag below.
+
+ <details>
+  <summary>Epic Fail</summary>
+  
+  Remaining bus stops:<br /><br />
+  
+  
+  <s>4.3	 59069	 • Opp Blk 757</s><br />
+  <s>5.0	 59059	 • Blk 608</s>< (Pillars are white) <br />
+  <s>5.5	 59049	 • Opp Khatib Stn</s> (near station) <br />
+  <s>5.9	 59039	 • Yishun Sports Hall</s> (blocks 5min walk wrong pillars) <br />
+      	Yishun Ave 1<br />
+  <s>6.7	 59721	 • Blk 816</s> (white pillars, no walkway) <br />
+  <s>7.2	 59501	 • Blk 871</s> (white pillars, no walkway)<br />
+  <s>7.6	 59731	 • Blk 512A</s> (white pillars)<br />
+  <s>8.0	 59741	 • Opp Orchid Country Club</s> (white)<br />
+  <s>8.3	 59751	 • Opp The Shaughnessy</s> (white)<br />
+  <s>8.8	 59471	 • Blk 430B</s> (pillar wrong pattern)<br />
+  <s>9.1	 59781	 • Bef Blk 469B</s> (blocks 5min walk+) (no similar blocks nearby)<br />
+  <s>9.2	 59771	 • Blk 469B</s> (Green pillars)<br />
+  <s>9.8	 68179	 • Aft Yishun Ave 8</s> (blocks 10+ min away)<br />
+      	West Camp Rd<br />
+  <s>11.5	 68159	 • Aft Shell Aviation</s> (not residential skip)<br />
+  <s>12.1	 68149	 • ST Aerospace</s> (not residential skip)<br />
+  <s>12.4	 68139	 • Youth Flying Club</s> (not residential skip)<br />
+  <s>13.2	 68169	 • Bef Seletar A'space Lane</s> (not residential)<br />
+      	Seletar A'space Dr<br />
+  <s>13.7	 68129	 • Aft West Camp Rd</s> (no blocks nearby)<br />
+  <s>14.1	 68109	 • Opp Rolls Royce Pte Ltd</s> (no blocks nearby)<br />
+  <s>14.5	 68089	 • Aft Seletar A'space Rise</s> (no residential blocks nearby)<br />
+  <s>14.8	 68099	 • Bef Baker St</s> (No HDB blocks)<br />
+      	Piccadilly<br />
+  <s>15.4	 68069	 • Opp Sing-China Bldg</s> (No void deck)<br />
+      	Jln Kayu<br />
+  <s>16.0	 68119	 • Aft Seletar Camp G</s> (No HDB)<br />
+      	Punggol Way<br />
+  <s>18.8	 65439	 • Aft TPE</s> (Couldnt find similar block )<br />
+  <s>19.2	 65149	 • Soo Teck Stn</s> (literally station, no similar blocks)<br />
+      	Punggol Ctrl<br />
+  <s>19.5	 65401	 • Opp Blk 264A</s> (near station, no similar block)<br />
+     	Punggol Pl<br />
+  <s>20.2	 65009	 • Punggol Temp Int</s> (station)<br />
+
+</details>
+
+However, in doing this, I drew up a very detailed list of requirements the bus stop must meet:
+
+- Not near any station
+- (Maybe) near a HDB flat entrance
+- Yellow pillars at entrance and black circular pillars after
+- Bench near walkway entrance, seems like many benches.
+- Bench style at void deck is criss-cross with bump in center. Seems the same as the one in the walkway (should be the same logically)
+
+And thus I began my second round of searching, this time using Google Maps -> Search for Start Point `Sembawang Int` and End Point `Punggol Int` -> Choose Bus 117 only route -> Follow the route using Street View.
+
+In doing so, after just 10 minutes I found the [target flat](https://www.google.com/maps/@1.412745,103.8377924,3a,75y,33.84h,91.59t/am=t/data=!3m6!1e1!3m4!1swMQlBO6IxGYLnPuiC-W8uQ!2e0!7i16384!8i8192?hl=en)!
+
+![Blk 870](../assets/stack-the-flags-2020/blk-870.png)
+<center><i>Video 2 Location</i></center> 
+
+Just look at it. It's the exact same place as the one in the video. Exiting Street View and looking at the location, I found that it was [Blk 870](https://goo.gl/maps/3Zo5kce1VuLreMUq9), and the postal code as shown on Google Maps is 760870.
+
+Wrap that in the flag format, and we've solved it.
+
+<details>
+  <summary>FLAG</summary>
+  
+  govtech-csg{760870}
+</details>
+
+<details>
+  <summary>Afterthoughts</summary>
+  
+  I learnt that before you start searching, you should think in terms of what the challenge author is thinking. It was only after I solved it that I realised that s/he probably intended for us to solve it by following the route on Street View, as is a common technique in OSINT challenges.
+</details>
 
 ***
