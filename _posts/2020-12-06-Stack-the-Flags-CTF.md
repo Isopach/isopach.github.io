@@ -676,11 +676,11 @@ Wrapping the postal code of the park in the flag tags gave us the solve.
 <details>
   <summary>Challenge Description</summary>
   
-Oh no! Our analyst accidentally executed a ransomware while analysing some important evidence. Are you able to help? Find the most important evidence from the image and retrieve the flag
+Oh no! Our analyst accidentally executed a ransomware while analysing some important evidence. Are you able to help? Find the most important evidence from the image and retrieve the flag. <br /><br />
 
-Note: You DO NOT need to email the perpetrator and you DO NOT need to pay any ransom
+Note: You DO NOT need to email the perpetrator and you DO NOT need to pay any ransom<br /><br />
 
-Please view this Document for download instructions.
+Please view this <a href="https://docs.google.com/document/d/11jHOoruVosCRLQzgtZv3iC8cRVJXoML8spfa8FWSfZY/edit?usp=sharing">Document</a> for download instructions.<br />
 ----
 </details>
 
