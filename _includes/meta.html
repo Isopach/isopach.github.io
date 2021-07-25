@@ -4,16 +4,20 @@
 
     {% if page.excerpt %}
     <meta property="og:description" content="{{ page.excerpt| strip_html }}" />
+    <meta name="twitter:image" content="https://isopach.dev/favicon.ico" />
     {% elsif page.description %}
     <meta property="og:description" content="{{ page.description }}" />
+    <meta name="twitter:image" content="https://isopach.dev/favicon.ico" />
     {% else %}
     <meta property="og:description" content="{{ site.description }}" />
+    <meta name="twitter:image" content="https://isopach.dev/favicon.ico" />
     {% endif %}
     <meta name="author" content="{{ site.name }}" />
 
     {% if page.title %}
     <meta property="og:title" content="{{ page.title }}" />
     <meta property="twitter:title" content="{{ page.title }}" />
+    <meta name="twitter:image" content="https://isopach.dev/favicon.ico" />
     {% endif %}
 
     {% if page.image %}
