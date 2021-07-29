@@ -3,10 +3,10 @@ layout: post
 title: HTB Busines CTF 2021 Writeup
 published: true
 categories: [Web]
-excerpt: I solved 3 web challenges within 3 hours of starting the CTF. Was the Captain of our company team PwnWithClass, made up of members from Japan, Estonia and France.
+excerpt: I solved 3 web challenges within 3 hours of starting the CTF. Was the Captain of our company team PwnWithClass, made up of members from Japan, Spain and France.
 ---
 
-I solved 3 web challenges within 3 hours of starting the CTF. Was the Captain of our company team PwnWithClass, made up of PwC members from Japan, Estonia and France.
+I solved 3 web challenges within 3 hours of starting the CTF. Was the Captain of our company team PwnWithClass, made up of PwC members from Japan, Spain and France.
 
 ---
 
