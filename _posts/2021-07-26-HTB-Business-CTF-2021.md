@@ -232,5 +232,50 @@ Hence we simply send a valid function call `date --help` and append our payload 
 
 *** 
 
+# Larablog
 
+#### Category: Web | 350 points
 
+<details>
+  <summary>Challenge Description</summary>
+  
+WIP
+</details>
+
+Blog built in Laravel. However, we are only given the nginx config on the home page. I didn't copy the code, but the `nginx.conf` had a vulnerability in that the trailing slash was not added a path:
+
+**nginx.conf**
+```bash
+location /assets {
+	alias /www/public/;
+}
+```
+
+This part of the configuration allows directory traversal by `/assets../dir`. Given that the challenge name is Larablog, I assumed it was a Laravel implementation so I opened the laravel source code repo on [Github](https://github.com/laravel/laravel). Reading the `composer.json`, I found a way to get the environment variables as follows:
+
+**composer.json**
+```bash
+"post-root-package-install": [
+            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+        ],
+```
+
+Thus, by accessing `$HOST/assets../.env`, we are able to get the list of env variables, which revealed the `APP_KEY`.
+
+`APP_KEY=base64:Tdn3C0gQJrFhyyxx90+kSow2S1aud1HCvqTI8lgeTdw=`
+
+According to [this blog](https://blog.truesec.com/2020/02/12/from-s3-bucket-to-laravel-unserialize-rce/), having the `APP_KEY` means you can likely decrypt the laravel session cookie, although we didn't get anywhere with it.
+
+After that, again assuming that it is the default Laravel implementation, I accessed `$HOST/assets../config/app.php` and got the version number (5.5.40) and cipher type (AES-256-CBC).
+
+Searching Google for `Laravel Framework 5.5.40 vulnerabilities` led us to the Metasploit module [PHP Laravel Framework 5.5.40 / 5.6.x < 5.6.30 - token Unserialize Remote Command Execution (Metasploit)](https://www.exploit-db.com/exploits/47129), and modifying the `laravel_session` into `blog_session` and running it against the server should give the flag, although I only found out this final step after the CTF ended :(
+
+Anyway, no bruteforce or file discovery was needed although it was blackbox. 
+
+<details>
+  <summary>FLAG</summary>
+  
+   
+</details>
+
+*** 
