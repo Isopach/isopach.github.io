@@ -4,20 +4,20 @@
 
     {% if page.excerpt %}
     <meta property="og:description" content="{{ page.excerpt| strip_html }}" />
-    <meta name="twitter:image" content="https://isopach.dev/favicon.ico" />
+    <meta name="twitter:image" content="https://isopach.dev/favicon.png" />
     {% elsif page.description %}
     <meta property="og:description" content="{{ page.description }}" />
-    <meta name="twitter:image" content="https://isopach.dev/favicon.ico" />
+    <meta name="twitter:image" content="https://isopach.dev/favicon.png" />
     {% else %}
     <meta property="og:description" content="{{ site.description }}" />
-    <meta name="twitter:image" content="https://isopach.dev/favicon.ico" />
+    <meta name="twitter:image" content="https://isopach.dev/favicon.png" />
     {% endif %}
     <meta name="author" content="{{ site.name }}" />
 
     {% if page.title %}
     <meta property="og:title" content="{{ page.title }}" />
     <meta property="twitter:title" content="{{ page.title }}" />
-    <meta name="twitter:image" content="https://isopach.dev/favicon.ico" />
+    <meta name="twitter:image" content="https://isopach.dev/favicon.png" />
     {% endif %}
 
     {% if page.image %}
@@ -27,4 +27,4 @@
     <meta property="og:image" content="{{ site.url }}{{ site.avatar }}"/>
     <meta property="twitter:image" content="{{ site.url }}{{ site.avatar }}"/>
     {% endif %}
-    <meta property="og:site_name" content="Koh You Liang - Security Engineer"/>
+    <meta property="og:site_name" content="Isopach - Security Researcher"/>
