@@ -19,6 +19,8 @@ avatar: /favicon.ico
 # Flags below are optional
 #
 
+timezone: Asia/Tokyo
+
 # Includes an icon in the footer for each username you enter
 footer-links:
   dribbble:
