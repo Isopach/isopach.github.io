@@ -24,7 +24,12 @@ timezone: Asia/Tokyo
 # Includes an icon in the footer for each username you enter
 footer-links:
   dribbble:
-  email: root@isopach.dev
+  # Plaintext email intentionally empty: site.footer-links.email would
+  # otherwise render in the footer of every page. svg-icons.html now
+  # builds the mailto link from the reversed parts below via mailhider.
+  email:
+  email_reversed_u: "toor"
+  email_reversed_d: "ved.hcaposi"
   facebook:
   flickr:
   github: isopach
