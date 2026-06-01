@@ -4,16 +4,17 @@ title: About
 permalink: /about/
 ---
 
-Hello world, I am Isopach.    
+Hello world, I am Isopach.
 
-I do Web/Misc/Forensics in [CTF.SG](https://ctftime.org/team/77768), a Singaporean team.     
-I used to play for OpenToAll between 2018-2020, and still play with them sometimes.     
+I post writeups here for CTF challenges and CVEs I've found in the wild.
 
-This is a blog for my CTF Writeups, because people have been telling me that it's hard to read a github `.md` file lol.
+On the CTF side, I played for [CTF.SG](https://ctftime.org/team/77768), a Singaporean team, specializing in Web/Misc/Forensics between 2020-2023, and OpenToAll (OpenBlue for Defcon China) before that from 2018-2020. I've mostly stopped playing now, but the writeups stick around.
+
+These days I spend more of my security time on vulnerability research — you can find my CVE writeups [here](https://isopach.dev/categories/#Cve). I also take on security consulting work through [Isopach Pte. Ltd.](https://isopachsec.com/); reach out if you're looking for help.
 
 # Contact
 
-Anyway, if you wanna know more, feel free to follow me on [Twitter](https://twitter.com/kohyouliang), or see my resume [here](https://kohyouliang.com/resume/)!
+If you wanna know more, feel free to follow me on [Twitter](https://twitter.com/isopach), or see my [LinkedIn](https://www.linkedin.com/in/kohyouliang/).
 
 Also, you can contact me anytime at my email on the link in the footer.
 
@@ -21,7 +22,6 @@ Interested in the theme, or want to read/link to the `.md` files directly? You c
 
 # Donors
 
-If this blog has helped you, feel free to donate / [sponsor me on Github](https://github.com/sponsors/Isopach)! 
+If this blog has helped you, feel free to donate / [sponsor me on Github](https://github.com/sponsors/Isopach)!
 
-- [Gensou](https://github.com/Gensou) ($27) 
-
+- [Gensou](https://github.com/Gensou) ($27)
